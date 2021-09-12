@@ -6,3 +6,4 @@ before_install:
 
 script:
   - docker run -e CI=true mahakagarwal248/client npm test -- --coverage
+  
