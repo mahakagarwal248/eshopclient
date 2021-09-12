@@ -9,7 +9,7 @@ import { addToCart } from './actions/CartActions';
 
 //importing general components
 import ProtectedRoute from './components/general/protectedRoute';
-console.log("tryy");
+
 //landing components
 import landing from './components/landing';
 import ProductDetails from './components/landing/ProductDetails';
