@@ -60,12 +60,8 @@ class Register extends Component {
         const{name, email, password} = this.state;
         const newUser={
             name, email, password, role
-        };
-        if(password === this.state.password2){
-            this.props.register(newUser);
-        }else{
-            message.error("Password must match");
-        }
+        };    
+        this.props.register(newUser);
     };
     render() {
         const {name, password, password2, email} = this.state
