@@ -64,7 +64,7 @@ class Login extends Component {
         const hasRedirect = redirect.length > 0 && search.includes("redirect=");
         return (
             <div className="container">
-                <h1 className="large text-primary">Login</h1>
+                <h1 className="large text-primary" style={{color:"#993300"}}>Login</h1>
                 <p className="lead"><i className="fas fa-user" style={{marginRight:"2px"}}></i>Sign Into Your Account</p>
                 <div className="form">
                     <Input 
@@ -84,7 +84,7 @@ class Login extends Component {
                     onChange={this.onChange} 
                     /> 
                 </div>
-                <button className="btn btn-primary" style={{backgroundColor:"#993300"}} onClick={this.onSubmit}>Sign In</button>
+                <button className="btn btn-primary" onClick={this.onSubmit}>Sign In</button>
                 <p className="my-1">
                     Don't have an account?
                     <Link 

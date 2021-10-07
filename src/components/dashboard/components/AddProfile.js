@@ -152,7 +152,7 @@ class AddProfile extends Component {
                 onChange={this.onChange}
               />
             </div>
-            <button className="btn btn-primary my-1" onClick={this.onSubmit}>
+            <button className="btn btn-primary my-1" style={{backgroundColor:"#993300"}} onClick={this.onSubmit}>
               {" "}
               Submit
             </button>

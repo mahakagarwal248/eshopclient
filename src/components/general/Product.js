@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const { Meta } = Card; 
 
-const Product = ({product, description, buttonName, link}) => {
+const Product = ({product, description, uploadImages, link, thumbnail, showBtn}) => {
     return (
         <div style={{padding:"15px", textAlign:"center"}}>
-            <Link to={link}>
+            <Link to={link || ""}>
             <Card
                 hoverable
                 style={{ width: 300 }}
                 cover={
                 <img
                     alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    src={thumbnail}
                 />
                 }
                 
@@ -24,7 +24,7 @@ const Product = ({product, description, buttonName, link}) => {
                 title={<h4>{product.name}</h4>}
                 description={description}
                 />
-                <Button type="primary">{buttonName}</Button>
+                {showBtn && <Link className="btn btn-primary" to={uploadImages}>Add Images</Link>}
             </Card>
             </Link>,
         </div>

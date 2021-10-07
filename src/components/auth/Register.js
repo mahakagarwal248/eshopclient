@@ -105,7 +105,7 @@ class Register extends Component {
                     onChange={this.onChange} 
                     /> 
                 </div>
-                <button className="btn btn-primary" style={{backgroundColor:"#993300"}} onClick={this.onSubmit}>Register</button>
+                <button className="btn btn-primary" onClick={this.onSubmit}>Register</button>
             </div>
         );
     }

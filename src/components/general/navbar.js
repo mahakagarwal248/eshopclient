@@ -3,11 +3,13 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {logout} from "../../actions/authActions";
 
-const NavBar = ({auth: {isAuthenticated}, logout})=>{
-    const user = (
+const NavBar = ({auth: {isAuthenticated, user}, logout})=>{
+    const authUser = (
         <ul>
             <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/register?role=merchant">Become a Merchant</Link></li>
+            {user.role !== "merchant" && (
+                <li><Link to="/register?role=merchant">Become a Merchant</Link></li>
+            )}
             <li><Link to="/cart"><i className="fas fa-shopping-cart" style={{marginRight:"2px"}}></i>Cart</Link></li>
             <li><Link onClick={logout} to="#!">
                 <i className="fas fa-sign-out-alt" style={{marginRight:"2px"}}></i>
@@ -24,11 +26,11 @@ const NavBar = ({auth: {isAuthenticated}, logout})=>{
        </ul>
     );
     return (
-       <nav className="main-navbar bg-main" style={{backgroundColor:"#802b00"}}>
+       <nav className="main-navbar bg-main" style={{backgroundColor:"#802b00", zIndex:"999"}}>
            <h1>
                <Link to=""> GopalaShringar </Link>
            </h1>
-           { isAuthenticated ? user : guest}
+           { isAuthenticated ? authUser : guest}
        </nav>
     );
 };

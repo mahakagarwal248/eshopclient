@@ -14,6 +14,7 @@ class ProductDetails extends Component {
         this.state={
             product: null,
             visible: false,
+            images:[],
         };
     }
     componentDidMount(){
@@ -23,7 +24,10 @@ class ProductDetails extends Component {
     componentWillReceiveProps(nextProps){
         if(nextProps && nextProps.product){
             const product = nextProps.product;
-            this.setState({product});
+            let images = [];
+            images.push(product.thumbnail)
+            images = [...images, ...product.images];
+            this.setState({product, images});
         }
     }
 
@@ -98,7 +102,7 @@ class ProductDetails extends Component {
         this.showModal();
     }
     render() {
-        const {product} = this.state;
+        const {product, images} = this.state;
         return (
             <Fragment>
             <Navbar/>
@@ -106,21 +110,40 @@ class ProductDetails extends Component {
                 {product ? (
                 <Fragment>
                 <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6">
-                        <img src="/assets/images/laptop.jpg" alt="product" />
+                    <div id="carousel-thumb" 
+                         className="carousel slide carousel-fade carousel-thumbnails" 
+                         data-ride="carousel" style={{width:"500px", height:"600px"}}
+                         >
+                        <div className="carousel-inner" role="listbox">
+                            {images.map((image, index)=>(
+                                <div className={
+                                            index === 0 
+                                            ? "carousel-item active" 
+                                            : "carousel-item" 
+                                        } 
+                                        key={index}
+                                        >
+                                    <img
+                                        className="d-block w-100"
+                                        src={image}
+                                        alt="First Slide"
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6">
                         <h1 style={{margin: "0"}}>{product.name}</h1>
                         <p className="lead" style={{margin: "0"}}>Description: {product.description}</p>
                         <p className="lead" style={{margin: "0"}}>Features:</p>
-                        <ul style={{marginLeft:"5%", marginTop:"0"}}>
+                        {product.features ? <ul style={{marginLeft:"5%", marginTop:"0"}}>
                             {product.features.map((feature, index)=>
                             <li key={index}>{feature}</li>)}
-                        </ul>
+                        </ul> : <p className="lead">No Features Listed</p>}
                         <Rate disabled allowHalf defaultValue={product.rating} style={{margin: "0"}}/>
                         <p className="lead" style={{margin: "0"}}>Quantity: {product.quantity}</p>
                         <h1>${product.price}</h1>
-                        <Button type="primary" style={{backgroundColor:"#993300", border:"2px solid black"}} onClick={(_)=> this.addProductToCart(product)}>Add to Cart</Button>
+                        <button className="btn btn-primary" style={{backgroundColor:"#993300", border:"2px solid black"}} onClick={(_)=> this.addProductToCart(product)}>Add to Cart</button>
                     </div>
                 </div>
                 <br/>
@@ -131,10 +154,10 @@ class ProductDetails extends Component {
                     <b>{product.details}</b>
                 </p>
                 <p className="lead" style={{margin: "0"}}>Main Features of Product:</p>
-                <ul style={{marginLeft:"5%", marginTop:"0"}}>
+                {product.features ? <ul style={{marginLeft:"5%", marginTop:"0"}}>
                     {product.features.map((feature, index)=>
                     <li key={index}>{feature}</li>)}
-                </ul>
+                </ul> : <p className="lead">No Feature Listed</p>}
                 </Fragment>
                 ) : (
                 <Space size="middle">

@@ -156,10 +156,10 @@ class Profile extends Component {
                 onOk={this.handleOk} 
                 onCancel={this.handleCancel}
                 footer={[
-                    <Button key="back" onClick={this.handleCancel}>
+                    <Button key="back" style={{backgroundColor:"#993300"}} onClick={this.handleCancel}>
                         Cancel
                     </Button>,
-                    <Button key="submit" type="primary" onClick={this.onSubmit}>
+                    <Button key="submit" type="primary" style={{backgroundColor:"#993300"}} onClick={this.onSubmit}>
                         Edit Profile
                     </Button>,
                 ]}
