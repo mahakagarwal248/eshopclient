@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const { Meta } = Card; 
 
-const Product = ({product, description, uploadImages, link, thumbnail, showBtn}) => {
+const Product = ({product, uploadImages, link, thumbnail, showBtn},description) => {
     return (
         <div style={{padding:"15px", textAlign:"center"}}>
             <Link to={link || ""}>

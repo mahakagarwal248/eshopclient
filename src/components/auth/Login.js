@@ -40,7 +40,7 @@ class Login extends Component {
                 }
                 this.props.history.push(split);
             }else{
-                setTimeout(()=> this.props.history.push("/"), 3000);
+                setTimeout(()=> this.props.history.push("/"), 500);
             }
         }
     }
@@ -64,7 +64,7 @@ class Login extends Component {
         const hasRedirect = redirect.length > 0 && search.includes("redirect=");
         return (
             <div className="container">
-                <h1 className="large text-primary" style={{color:"#993300"}}>Login</h1>
+                <h1 className="large" style={{color:"#993300"}}>Login</h1>
                 <p className="lead"><i className="fas fa-user" style={{marginRight:"2px"}}></i>Sign Into Your Account</p>
                 <div className="form">
                     <Input 

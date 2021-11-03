@@ -6,7 +6,10 @@ import {logout} from "../../actions/authActions";
 const NavBar = ({auth: {isAuthenticated, user}, logout})=>{
     const authUser = (
         <ul>
-            <li><Link to="/dashboard">Dashboard</Link></li>
+            {user.role === "merchant" && (
+                <li><Link to="/dashboard">Dashboard</Link></li>
+            )}
+            
             {user.role !== "merchant" && (
                 <li><Link to="/register?role=merchant">Become a Merchant</Link></li>
             )}
