@@ -26,7 +26,7 @@ const Product = ({product, description, uploadImages, link, thumbnail, showBtn})
                 />
                 {showBtn && <Link className="btn btn-primary" to={uploadImages}>Add Images</Link>}
             </Card>
-            </Link>,
+            </Link>
         </div>
     )
 }

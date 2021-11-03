@@ -6,10 +6,9 @@ function getBase64(file) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onerror = (error) => reject(error);
   });
 }
-
 
 export default class UploadImages extends Component {
     state = {
@@ -20,7 +19,7 @@ export default class UploadImages extends Component {
     
       handleCancel = () => this.setState({ previewVisible: false });
     
-      handlePreview = async file => {
+      handlePreview = async (file) => {
         if (!file.url && !file.preview) {
           file.preview = await getBase64(file.originFileObj);
         }
