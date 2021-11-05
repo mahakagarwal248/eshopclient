@@ -20,7 +20,7 @@ class AddImages extends Component {
       method: "post",
       url,
       data,
-      config: { headers: { "Content-Type": "multipart/form-data" } },
+      config: { headers: { "Content-Type": "multipart/form-data", "access-control-allow-origin":"*" } },
     })
       .then((res) => {
         console.log(res);
@@ -48,7 +48,7 @@ class AddImages extends Component {
       method: "post",
       url,
       data,
-      config: { headers: { "Content-Type": "multipart/form-data" } },
+      config: { headers: { "Content-Type": "multipart/form-data", "access-control-allow-origin":"*" } },
     })
       .then((res) => {
         console.log(res);

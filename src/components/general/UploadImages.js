@@ -42,7 +42,7 @@ export default class UploadImages extends Component {
         return (
           <>
             <Upload
-              action="https://run.mocky.io/v3/528be42f-d86e-47b6-86df-c2df9b293d1f"
+              action="https://run.mocky.io/v3/3dee5abf-5a12-4664-af9c-53d7c361ba31"
               listType="picture-card"
               fileList={this.props.fileList}
               onPreview={this.handlePreview}

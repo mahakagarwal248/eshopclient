@@ -2,7 +2,7 @@ import axios from "axios";
 import {GET_PRODUCTS, PRODUCT_ERROR, GET_PRODUCT} from "./types";
 import {getServer} from "../util";
 
-export const getProducts = () => async dispatch =>{
+export const getProducts = () => async (dispatch) =>{
     try {
         const res = await axios.get(`${getServer()}/api/products`);
         dispatch({
