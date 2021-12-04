@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {logout} from "../../actions/authActions";
 import PropTypes from "prop-types";
-import { Avatar, Image } from 'antd';
+import { Avatar} from 'antd';
 require ("../../dashboard.css");
 
 class Dashboard extends Component{

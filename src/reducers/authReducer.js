@@ -1,7 +1,5 @@
 import {SET_CURRENT_USER, SUCCESSFUL_REGISTER, FAILURE_REGISTER, ERRORS, AUTH_ERROR, SUCCESSFUL_LOGIN,FAILURE_LOGIN, LOGOUT,} from "../actions/types";
 
-import { isEmpty } from "lodash";
-
 export const initialState = {
     isAuthenticated: localStorage.getItem("token") ? true : false,
     token: localStorage.getItem("token"),

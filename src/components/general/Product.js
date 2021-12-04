@@ -32,7 +32,7 @@ const Product = ({product,description, uploadImages, link, thumbnail, showBtn}) 
 }
 Product.propTypes={
     product: propTypes.object.isRequired,
-    description: propTypes.func.isRequired,
-    buttonName: propTypes.string,
+   // description: propTypes.func.isRequired,
+    //buttonName: propTypes.string,
 }
 export default Product;
