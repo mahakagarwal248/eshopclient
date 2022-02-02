@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-const port = process.env.PORT || 8080;
+const server_port = process.env.YOUR_PORT || process.env.PORT || 8080;
+const server_host = process.env.YOUR_HOST || '0.0.0.0';
+
 app.use(express.static(path.join(__dirname, "/build")));
 
 app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 
-app.listen(port, (_)=>console.log("`React app is listening on port ${port}`"));
+app.listen(server_port, server_host, (_)=>console.log("`React app is listening `"));
